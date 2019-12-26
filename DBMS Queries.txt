@@ -189,6 +189,244 @@ select * from items where supplierid = 4;
 
 select * from items where (supplierid = 4 and minqty > 3) order by itemid;
 
+------------------------------------------------------------------------------------------------------------------------------
+SQL>  select d.deptno,d.dname,e.empno,e.ename,e.deptno from dept d join emp e on d.deptno = e.deptno;
+
+    DEPTNO DNAME               EMPNO ENAME          DEPTNO
+---------- -------------- ---------- ---------- ----------
+        10 ACCOUNTING           7782 CLARK              10
+        10 ACCOUNTING           7839 KING               10
+        10 ACCOUNTING           7934 MILLER             10
+        20 RESEARCH             7566 JONES              20
+        20 RESEARCH             7902 FORD               20
+        20 RESEARCH             7876 ADAMS              20
+        20 RESEARCH             7369 SMITH              20
+        20 RESEARCH             7788 SCOTT              20
+        30 SALES                7521 WARD               30
+        30 SALES                7844 TURNER             30
+        30 SALES                7499 ALLEN              30
+
+    DEPTNO DNAME               EMPNO ENAME          DEPTNO
+---------- -------------- ---------- ---------- ----------
+        30 SALES                7900 JAMES              30
+        30 SALES                7698 BLAKE              30
+        30 SALES                7654 MARTIN             30
+14 rows selected.
+
+SQL> select d.deptno,d.dname,e.empno,e.ename from dept d join emp e on d.deptno = e.deptno;
+
+    DEPTNO DNAME               EMPNO ENAME
+---------- -------------- ---------- ----------
+        10 ACCOUNTING           7782 CLARK
+        10 ACCOUNTING           7839 KING
+        10 ACCOUNTING           7934 MILLER
+        20 RESEARCH             7566 JONES
+        20 RESEARCH             7902 FORD
+        20 RESEARCH             7876 ADAMS
+        20 RESEARCH             7369 SMITH
+        20 RESEARCH             7788 SCOTT
+        30 SALES                7521 WARD
+        30 SALES                7844 TURNER
+        30 SALES                7499 ALLEN
+
+    DEPTNO DNAME               EMPNO ENAME
+---------- -------------- ---------- ----------
+        30 SALES                7900 JAMES
+        30 SALES                7698 BLAKE
+        30 SALES                7654 MARTIN
+
+14 rows selected.
+
+SQL>  select d.deptno,d.dname,e.empno,e.ename from dept d right outer join emp e on d.deptno = e.deptno;
+
+    DEPTNO DNAME               EMPNO ENAME
+---------- -------------- ---------- ----------
+        10 ACCOUNTING           7934 MILLER
+        10 ACCOUNTING           7839 KING
+        10 ACCOUNTING           7782 CLARK
+        20 RESEARCH             7902 FORD
+        20 RESEARCH             7876 ADAMS
+        20 RESEARCH             7788 SCOTT
+        20 RESEARCH             7566 JONES
+        20 RESEARCH             7369 SMITH
+        30 SALES                7900 JAMES
+        30 SALES                7844 TURNER
+        30 SALES                7698 BLAKE
+
+    DEPTNO DNAME               EMPNO ENAME
+---------- -------------- ---------- ----------
+        30 SALES                7654 MARTIN
+        30 SALES                7521 WARD
+        30 SALES                7499 ALLEN
+
+14 rows selected.
+
+SQL> select d.deptno,d.dname,e.empno,e.ename from dept d left outer join emp e on d.deptno = e.deptno;
+
+    DEPTNO DNAME               EMPNO ENAME
+---------- -------------- ---------- ----------
+        10 ACCOUNTING           7782 CLARK
+        10 ACCOUNTING           7839 KING
+        10 ACCOUNTING           7934 MILLER
+        20 RESEARCH             7566 JONES
+        20 RESEARCH             7902 FORD
+        20 RESEARCH             7876 ADAMS
+        20 RESEARCH             7369 SMITH
+        20 RESEARCH             7788 SCOTT
+        30 SALES                7521 WARD
+        30 SALES                7844 TURNER
+        30 SALES                7499 ALLEN
+
+    DEPTNO DNAME               EMPNO ENAME
+---------- -------------- ---------- ----------
+        30 SALES                7900 JAMES
+        30 SALES                7698 BLAKE
+        30 SALES                7654 MARTIN
+        40 OPERATIONS
+
+15 rows selected.
+SQL> select d.deptno,d.dname,e.empno,e.ename from dept d join emp e on d.deptno != e.deptno;
+
+    DEPTNO DNAME               EMPNO ENAME
+---------- -------------- ---------- ----------
+        10 ACCOUNTING           7369 SMITH
+        10 ACCOUNTING           7499 ALLEN
+        10 ACCOUNTING           7521 WARD
+        10 ACCOUNTING           7566 JONES
+        10 ACCOUNTING           7654 MARTIN
+        10 ACCOUNTING           7698 BLAKE
+        10 ACCOUNTING           7788 SCOTT
+        10 ACCOUNTING           7844 TURNER
+        10 ACCOUNTING           7876 ADAMS
+        10 ACCOUNTING           7900 JAMES
+        10 ACCOUNTING           7902 FORD
+
+    DEPTNO DNAME               EMPNO ENAME
+---------- -------------- ---------- ----------
+        20 RESEARCH             7499 ALLEN
+        20 RESEARCH             7521 WARD
+        20 RESEARCH             7654 MARTIN
+        20 RESEARCH             7698 BLAKE
+        20 RESEARCH             7782 CLARK
+        20 RESEARCH             7839 KING
+        20 RESEARCH             7844 TURNER
+        20 RESEARCH             7900 JAMES
+        20 RESEARCH             7934 MILLER
+        30 SALES                7369 SMITH
+        30 SALES                7566 JONES
+
+    DEPTNO DNAME               EMPNO ENAME
+---------- -------------- ---------- ----------
+        30 SALES                7782 CLARK
+        30 SALES                7788 SCOTT
+        30 SALES                7839 KING
+        30 SALES                7876 ADAMS
+        30 SALES                7902 FORD
+        30 SALES                7934 MILLER
+        40 OPERATIONS           7369 SMITH
+        40 OPERATIONS           7499 ALLEN
+        40 OPERATIONS           7521 WARD
+        40 OPERATIONS           7566 JONES
+        40 OPERATIONS           7654 MARTIN
+
+    DEPTNO DNAME               EMPNO ENAME
+---------- -------------- ---------- ----------
+        40 OPERATIONS           7698 BLAKE
+        40 OPERATIONS           7782 CLARK
+        40 OPERATIONS           7788 SCOTT
+        40 OPERATIONS           7839 KING
+        40 OPERATIONS           7844 TURNER
+        40 OPERATIONS           7876 ADAMS
+        40 OPERATIONS           7900 JAMES
+        40 OPERATIONS           7902 FORD
+        40 OPERATIONS           7934 MILLER
+
+42 rows selected.
+
+SQL> select * from student;
+
+     REGNO FIRSTNAME            MIDDLENAME           LASTNAME
+---------- -------------------- -------------------- --------------------
+MAILID
+--------------------------------------------------
+      1001 scott                b                    johnson
+scottbjohnson@gmail.com
+
+      1002 tyler                                     cohen
+tylercohen@gmail.com
+
+      1003 michael              a                    scott
+michaelscott@gmail.com
+
+
+SQL> create sequence regno_seq start with 110 increment by 2 maxvalue 200;
+
+Sequence created.
+
+SQL> insert into student values (regno_seq.nextval,'first','middle','last','first@gmail.com');
+
+1 row created.
+
+SQL> insert into student values(regno_seq.nextval, 'first','middle','last','second@gmail.com');
+
+1 row created.
+
+SQL> select * from student;
+
+     REGNO FIRSTNAME            MIDDLENAME           LASTNAME
+---------- -------------------- -------------------- --------------------
+MAILID
+--------------------------------------------------
+      1001 scott                b                    johnson
+scottbjohnson@gmail.com
+
+      1002 tyler                                     cohen
+tylercohen@gmail.com
+
+      1003 michael              a                    scott
+michaelscott@gmail.com
+
+
+     REGNO FIRSTNAME            MIDDLENAME           LASTNAME
+---------- -------------------- -------------------- --------------------
+MAILID
+--------------------------------------------------
+       110 first                middle               last
+first@gmail.com
+
+       112 first                middle               last
+second@gmail.com
+
+
+SQL> drop sequence regno_seq;
+
+Sequence dropped.
+
+SQL> select * from student;
+
+     REGNO FIRSTNAME            MIDDLENAME           LASTNAME
+---------- -------------------- -------------------- --------------------
+MAILID
+--------------------------------------------------
+      1001 scott                b                    johnson
+scottbjohnson@gmail.com
+
+      1002 tyler                                     cohen
+tylercohen@gmail.com
+
+      1003 michael              a                    scott
+michaelscott@gmail.com
+
+
+     REGNO FIRSTNAME            MIDDLENAME           LASTNAME
+---------- -------------------- -------------------- --------------------
+MAILID
+--------------------------------------------------
+       110 first                middle               last
+first@gmail.com
+
+       112 first                middle               last
+second@gmail.com
 
 
 
