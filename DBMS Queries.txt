@@ -1,0 +1,109 @@
+ create table programmer(empno number(5) primary key, lastname varchar(30) not null,
+  2  firstname varchar(30) null, hiredate date, projid varchar(6), language varchar(15),
+  3  taskno number(2), privilege varchar(25));
+ 
+desc programmer
+
+insert into programmer values(201,'gupta','saurav','1-jan-95','npr','vb',52,'secret');
+
+insert into programmer values(390,'ghosh','pinky','1-may-93','kcw','java',11,'top secret');
+
+update programmer set hiredate = '5-jan-93' where empno = 390;
+
+desc programmer;
+
+select * from programmer;
+
+insert into programmer values(789,'agarwal','praveen','31-aug-98','rnc','vb',11,'secret');
+
+insert into programmer values(134,'chaudhary','supriyo','15-jul-95','tipps','C++',52,'secret');
+
+insert into programmer values(896,'jha','ranjit','15-jun-97','kcw','java',10,'top secret');
+
+insert into programmer values(345,'john','peter','15-nov-99','tipps','java',52,'');
+
+insert into programmer values(563,'anderson','andy','15-aug-94','nitts','C++',89,'confidential');
+
+select * from programmer;
+
+set linesize 120;
+
+select * from programmer;
+
+create table weather(city varchar(25), state varchar(25), high number(5), low number(5));
+
+desc weather;
+
+insert into weather values('calcutta','west bengal',105,90);
+
+insert into weather values('trivandrum','kerala',101,92);
+
+insert into weather values('mumbai','maharashtra',88,69);
+
+insert into weather values('bangalore','karnataka',77,60);
+
+insert into weather values('new delhi','',80,72);
+
+select * from weather;
+
+create table books(bookid number(6) primary key, title varchar(10),
+  topicid varchar(10), publishername varchar(20), placeofpublication varchar(15),
+  price number(5),purchasedate date,shelfno varchar(6));
+
+insert into books values(8293,'dbms','db1','prentice hall','mumbai',255,'1-jan-95','s11');
+
+insert into books values(5645,'dbms','db1','pearson education','mumbai',655,
+  '5-jan-93','s12');
+
+insert into books values(6565,'c','c1','tmh','mumbai',840,'31-aug-98','s66');
+
+insert into books values(6567,'C++','cplus1','abc publishers','delhi',300,
+  '15-jul-95','s77');
+
+insert into books values(4576,'java','java1','guru govind publications',
+   'delhi',500,'15-jun-97','s87');
+
+alter table books modify(publishername varchar(50));
+
+insert into books values(4576,'java','java1','guru govind publications',
+   'delhi',500,'15-jun-97','s87');
+
+insert into books values(3433,'oops','oops1','dave publishers','pune',600,
+    '15-nov-99','s56');
+
+insert into books values(4655,'sad','sad1','sajan publications','cochin',
+    700,'15-aug-94','s76');
+
+select * from books;
+
+update programmer set projid = 'nitts' where empno = 201;
+
+update programmer set language = 'C++' where empno = 201;
+
+select * from programmer;
+
+update books set shelfno = 's10' where title = 'dbms';
+
+delete from programmer where empno = 134;
+
+select *from programmer;
+
+alter table weather add(natureofclimate varchar(20));
+
+update weather set natureofclimate = 'cloudy' where city = 'calcutta';
+
+
+update weather set natureofclimate = 'rainy' where city = 'trivandrum';
+
+update weather set natureofclimate = 'rainy' where city = 'mumbai';
+
+update weather set natureofclimate = 'sunny' where city = 'bangalore';
+
+alter table programmer drop column taskno;
+
+drop table weather;
+
+
+
+
+
